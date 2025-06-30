@@ -4,9 +4,9 @@ bash build_all.sh
 pip install gdown
 apt update && apt install -y unzip
 
-mkdir demo_data
-cd demo_data
+# mkdir demo_data
 gdown --folder https://drive.google.com/drive/folders/1pRyFmxYXmAnpku7nGRioZaKrVJtIsroP # their example data
+cd demo_data
 
 # Extract the kinect driller sequence
 unzip kinect_driller_seq.zip
