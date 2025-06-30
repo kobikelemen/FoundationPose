@@ -4,6 +4,7 @@ bash build_all.sh
 pip install gdown
 apt update && apt install -y unzip
 
+mkdir demo_data
 cd demo_data
 gdown --folder https://drive.google.com/drive/folders/1DFezOAD0oD1BblsXVxqDsl8fj0qzB82i
 gdown --folder https://drive.google.com/drive/folders/1pRyFmxYXmAnpku7nGRioZaKrVJtIsroP
