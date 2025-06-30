@@ -16,4 +16,4 @@ unzip mustard0.zip
 cd ..
 gdown --folder https://drive.google.com/drive/folders/1yMvJmVE07lllLWLys5ASk-_UySep1Dxu
 
-mv /no_diffusion /weights
+mv no_diffusion/ weights
