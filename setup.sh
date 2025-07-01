@@ -1,5 +1,8 @@
 bash build_all.sh
 
+pip install uvicorn
+pip install fastapi
+
 
 pip install gdown
 apt update && apt install -y unzip
