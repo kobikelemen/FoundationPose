@@ -25,7 +25,7 @@ def _compute_pose(data_dir : str):
 #   parser.add_argument('--debug', type=int, default=1)
 #   parser.add_argument('--debug_dir', type=str, default=f'{code_dir}/debug')
 
-  mesh_file = f"{code_dir}/mesh/textured_simple.obj"
+  mesh_file = f"{code_dir}/server_data/mesh/mesh.obj"
   est_refine_iter = 5
   track_refine_iter = 2
   debug = 2
@@ -79,6 +79,7 @@ def _compute_pose(data_dir : str):
     os.makedirs(f'{debug_dir}/track_vis', exist_ok=True)
     imageio.imwrite(f'{debug_dir}/track_vis/{reader.id_strs[i]}.png', vis)
 
+  return center_pose
 
 
 class DataRequest(BaseModel):
@@ -120,12 +121,12 @@ async def estimate(data: DataRequest) -> TransformResponse:
     data_root = "server_data"
     os.makedirs(data_root, exist_ok=True)
 
-    # Optionally, clear previous contents to avoid mixing datasets
-    for root, dirs, files in os.walk(data_root):
-        for f in files:
-            os.remove(os.path.join(root, f))
-        for d in dirs:
-            os.rmdir(os.path.join(root, d))
+    # # Optionally, clear previous contents to avoid mixing datasets
+    # for root, dirs, files in os.walk(data_root):
+    #     for f in files:
+    #         os.remove(os.path.join(root, f))
+    #     for d in dirs:
+    #         os.rmdir(os.path.join(root, d))
 
     with zipfile.ZipFile(io.BytesIO(zip_bytes)) as zf:
         zf.extractall(data_root)
